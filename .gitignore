@@ -1,0 +1,9 @@
+BUILD/*
+BUILDROOT/*
+RPMS/*
+SPECS/*
+SRPMS/*
+.directory
+*.tar.gz
+*.rpm
+
