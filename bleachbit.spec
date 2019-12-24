@@ -15,6 +15,7 @@ BuildRequires:  libappstream-glib
 
 Requires:       gnome-python2
 Requires:       pygtk2
+Requires:       python2-gobject
 
 %description
 BleachBit deletes unnecessary files to free valuable disk space, maintain 
