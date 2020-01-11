@@ -4,7 +4,7 @@ Release:        7%{?dist}
 Summary:        Python utility to free disk space and improve privacy
 License:        GPLv3+
 URL:            https://www.bleachbit.org/
-Source0:        https://github.com/bleachbit/bleachbit/archive/%{version}.tar.gz
+Source0:        https://github.com/bleachbit/bleachbit/archive/v%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  desktop-file-utils
