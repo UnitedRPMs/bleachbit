@@ -1,5 +1,5 @@
 Name:           bleachbit
-Version:        3.0
+Version:        3.1.0
 Release:        7%{?dist}
 Summary:        Python utility to free disk space and improve privacy
 License:        GPLv3+
@@ -71,6 +71,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/%{name}.a
 %exclude %{_datadir}/%{name}/Windows.py*
 
 %changelog
+
+* Fri Jan 10 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.1.0-7 
+- Updated to 3.1.0
 
 * Fri Dec 20 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.0-7 
 - Updated to 3.0
