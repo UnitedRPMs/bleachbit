@@ -72,7 +72,7 @@ make -C po local
 
 %changelog
 
-* Fri Jan 10 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.1.0-7 
+* Fri Jan 10 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.1.0-7 
 - Updated to 3.1.0
 
 * Fri Dec 20 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.0-7 
