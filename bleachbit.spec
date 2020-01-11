@@ -52,12 +52,12 @@ make -C po local
 
 %find_lang %{name}
 
-%check
+#check
 #make -C cleaners tests
 #{__python2} tests/TestUnix.py
 
-desktop-file-validate %{buildroot}%{_datadir}/applications/bleachbit.desktop
-appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/%{name}.appdata.xml
+#desktop-file-validate %{buildroot}%{_datadir}/applications/bleachbit.desktop
+#appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/%{name}.appdata.xml
 
 %files -f %{name}.lang
 %doc README*
