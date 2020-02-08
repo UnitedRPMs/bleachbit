@@ -1,3 +1,20 @@
+#
+# spec file for package bleachbit
+#
+# Copyright (c) 2020 UnitedRPMs.
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://goo.gl/zqFJft
+#
+
 # 
 %define _legacy_common_support 1
 
@@ -14,6 +31,7 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
+BuildRequires:  python2-rpm-macros
 BuildRequires:  libappstream-glib
 
 Requires:       gnome-python2
@@ -35,12 +53,8 @@ sed -i 's/\/local//' Makefile
 # fix appdata location
 sed -i 's/$(datadir)\/appdata/$(datadir)\/metainfo/g' Makefile
 
-# Disable update notifications
-sed -i -e '\@online_update_notification_enabled@s/^.*$/online_update_notification_enabled = False/g' \
-bleachbit/Common.py && egrep online_update_notification_enabled[[:space:]]=[[:space:]]False bleachbit/Common.py
-
 # Drop deprecated line in desktop file.
-sed -i '/Encoding/d' bleachbit.desktop
+sed -i '/Encoding/d' org.bleachbit.BleachBit.desktop
 
 # Drop env shebangs as files in %%_datadir usually don't need this.
 find -depth -type f -writable -name "*.py" -exec sed -iE '1s=^#! */usr/bin/\(python\|env python\)[23]\?=#!%{__python2}=' {} +
@@ -66,8 +80,8 @@ make -C po local
 %doc README*
 %license COPYING
 %{_bindir}/%{name}
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/metainfo/%{name}.appdata.xml
+%{_datadir}/applications/*.desktop
+%{_datadir}/metainfo/org.bleachbit.BleachBit.metainfo.xml
 %{_datadir}/polkit-1/actions/org.bleachbit.policy
 %{_datadir}/%{name}/
 %{_datadir}/pixmaps/%{name}.png
