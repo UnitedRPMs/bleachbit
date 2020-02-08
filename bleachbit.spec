@@ -1,5 +1,8 @@
+# 
+%define _legacy_common_support 1
+
 Name:           bleachbit
-Version:        3.1.0
+Version:        3.2.0
 Release:        7%{?dist}
 Summary:        Python utility to free disk space and improve privacy
 License:        GPLv3+
@@ -71,6 +74,9 @@ make -C po local
 %exclude %{_datadir}/%{name}/Windows.py*
 
 %changelog
+
+* Fri Feb 07 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.2.0-7 
+- Updated to 3.2.0
 
 * Fri Jan 10 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.1.0-7 
 - Updated to 3.1.0
