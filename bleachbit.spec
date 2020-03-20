@@ -18,25 +18,28 @@
 # 
 %define _legacy_common_support 1
 
+%global commit0 b33e863f27ecceeb82c1b6f630764498a519361a
+%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
+
 Name:           bleachbit
-Version:        3.2.0
+Version:        3.9.0
 Release:        7%{?dist}
 Summary:        Python utility to free disk space and improve privacy
 License:        GPLv3+
 URL:            https://www.bleachbit.org/
-Source0:        https://github.com/bleachbit/bleachbit/archive/v%{version}.tar.gz
+Source0:	https://github.com/bleachbit/bleachbit/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
-BuildRequires:  python2-devel
-BuildRequires:  python2-setuptools
-BuildRequires:  python2-rpm-macros
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
+BuildRequires:  python3-rpm-macros
 BuildRequires:  libappstream-glib
 
-Requires:       gnome-python2
+#Requires:       gnome-python2
 Requires:       pygtk2
-Requires:       python2-gobject
+Requires:       python3-gobject
 
 %description
 BleachBit deletes unnecessary files to free valuable disk space, maintain 
@@ -45,7 +48,7 @@ cookies, Internet history, localizations, logs, temporary files, and broken
 shortcuts. It wipes clean the cache and history list of many common programs. 
 
 %prep
-%autosetup
+%autosetup -n %{name}-%{commit0} 
 
 #do not install in /usr/local
 sed -i 's/\/local//' Makefile
@@ -57,12 +60,12 @@ sed -i 's/$(datadir)\/appdata/$(datadir)\/metainfo/g' Makefile
 sed -i '/Encoding/d' org.bleachbit.BleachBit.desktop
 
 # Drop env shebangs as files in %%_datadir usually don't need this.
-find -depth -type f -writable -name "*.py" -exec sed -iE '1s=^#! */usr/bin/\(python\|env python\)[23]\?=#!%{__python2}=' {} +
+find -depth -type f -writable -name "*.py" -exec sed -iE '1s=^#! */usr/bin/\(python\|env python\)[23]\?=#!%{__python3}=' {} +
 
 
 %build
 make -C po local 
-%{__python2} setup.py build
+%{__python3} setup.py build
 
 %install
 %make_install
@@ -88,6 +91,10 @@ make -C po local
 %exclude %{_datadir}/%{name}/Windows.py*
 
 %changelog
+
+* Fri Mar 20 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.9.0-7 
+- Migration to python3
+- Update to 3.9.0-7
 
 * Fri Feb 07 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.2.0-7 
 - Updated to 3.2.0
