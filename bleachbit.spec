@@ -18,11 +18,11 @@
 # 
 %define _legacy_common_support 1
 
-%global commit0 b33e863f27ecceeb82c1b6f630764498a519361a
+%global commit0 99472dc3aa1478d8cdf3cc94fd9d6fedd3084175
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           bleachbit
-Version:        3.9.0
+Version:        3.9.2
 Release:        7%{?dist}
 Summary:        Python utility to free disk space and improve privacy
 License:        GPLv3+
@@ -91,6 +91,9 @@ make -C po local
 %exclude %{_datadir}/%{name}/Windows.py*
 
 %changelog
+
+* Sat Apr 11 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.9.2-7 
+- Update to 3.9.2-7
 
 * Fri Mar 20 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 3.9.0-7 
 - Migration to python3
