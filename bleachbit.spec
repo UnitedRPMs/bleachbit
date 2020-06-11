@@ -64,20 +64,15 @@ find -depth -type f -writable -name "*.py" -exec sed -iE '1s=^#! */usr/bin/\(pyt
 
 
 %build
-make -C po local 
-%{__python3} setup.py build
+make -C po local %{?_smp_mflags}
+%py3_build
+
 
 %install
-%make_install
+make prefix=/usr DESTDIR=%{buildroot} install
 
 %find_lang %{name}
 
-#check
-#make -C cleaners tests
-#{__python2} tests/TestUnix.py
-
-#desktop-file-validate %{buildroot}%{_datadir}/applications/bleachbit.desktop
-#appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/%{name}.appdata.xml
 
 %files -f %{name}.lang
 %doc README*
@@ -91,6 +86,9 @@ make -C po local
 %exclude %{_datadir}/%{name}/Windows.py*
 
 %changelog
+
+* Wed Jun 10 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 4.0.1-8 
+- Rebuilt for python3.9
 
 * Mon Apr 27 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 4.0.1-7 
 - Updated to 4.0.1
