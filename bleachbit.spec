@@ -87,8 +87,6 @@ make prefix=/usr DESTDIR=%{buildroot} install
 
 %changelog
 
-- Updated to 800fa155da88ec71839f315162949b26b5e914a6
-
 * Mon Aug 31 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 4.1.0-7
 - Updated to 4.1.0
 
