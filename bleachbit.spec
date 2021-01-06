@@ -1,7 +1,7 @@
 #
 # spec file for package bleachbit
 #
-# Copyright (c) 2020 UnitedRPMs.
+# Copyright (c) 2021 UnitedRPMs.
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -18,11 +18,11 @@
 # 
 %define _legacy_common_support 1
 
-%global commit0 e555bef05b04e9ced094762122a5dd7b5c3f664f
+%global commit0 d929e94d7dccf57eded6125f11ddaf78903b200f
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           bleachbit
-Version:        4.1.1
+Version:        4.2.0
 Release:        7%{?dist}
 Summary:        Python utility to free disk space and improve privacy
 License:        GPLv3+
@@ -86,6 +86,9 @@ make prefix=/usr DESTDIR=%{buildroot} install
 %exclude %{_datadir}/%{name}/Windows.py*
 
 %changelog
+
+* Wed Jan 06 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> 4.2.0-7
+- Updated to 4.2.0
 
 * Wed Nov 18 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> 4.1.1-7
 - Updated to 4.1.1
