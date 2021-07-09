@@ -18,11 +18,11 @@
 # 
 %define _legacy_common_support 1
 
-%global commit0 d4b7f6a7828896136061460527936b2a8ab6edf2
+%global commit0 5f55050b5acd47c7ffc58c9e40e97cb406c233fa
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           bleachbit
-Version:        4.3.0
+Version:        4.4.0
 Release:        7%{?dist}
 Summary:        Python utility to free disk space and improve privacy
 License:        GPLv3+
@@ -30,6 +30,7 @@ URL:            https://www.bleachbit.org/
 Source0:	https://github.com/bleachbit/bleachbit/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
 BuildArch:      noarch
 
+BuildRequires:  make
 BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
 BuildRequires:  python3-devel
@@ -86,6 +87,9 @@ make prefix=/usr DESTDIR=%{buildroot} install
 %exclude %{_datadir}/%{name}/Windows.py*
 
 %changelog
+
+* Mon Jul 05 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> 4.4.0-7
+- Updated to 4.4.0
 
 * Fri Jun 11 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> 4.3.0-7
 - Updated to 4.3.0
