@@ -18,11 +18,11 @@
 # 
 %define _legacy_common_support 1
 
-%global commit0 f8dc91f6bfb6a9b7a5bfa3a44ca0016cfe9dc50e
+%global commit0 037534a80a9bfc697e460c595c79ace7987c0ada
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 Name:           bleachbit
-Version:        4.4.1
+Version:        4.4.2
 Release:        7%{?dist}
 Summary:        Python utility to free disk space and improve privacy
 License:        GPLv3+
@@ -87,6 +87,9 @@ make prefix=/usr DESTDIR=%{buildroot} install
 %exclude %{_datadir}/%{name}/Windows.py*
 
 %changelog
+
+* Wed Nov 24 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> 4.4.2-7
+- Updated to 4.4.2
 
 * Fri Nov 05 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> 4.4.1-7
 - Updated to 4.4.1
